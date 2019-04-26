@@ -1,0 +1,10 @@
+-- Free Disk Space Class
+#noedit
+#system win32
+#model clarion dll
+#pragma debug(vid=>full)
+#pragma optimize(cpu=>386)
+#pragma define(_ABCLinkMode_=>1)
+#pragma define(_ABCDllMode_=>0)
+#compile "FreDskSp.clw"
+#link "FreDskSp.exe"

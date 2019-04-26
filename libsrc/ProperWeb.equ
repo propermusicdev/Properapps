@@ -1,0 +1,16 @@
+ INCLUDE('ProperWeb.equ'),ONCE
+
+!Product Sales Stat's
+
+TProductStat		GROUP,TYPE
+SalesThisWeek   	  LONG
+SalesLastWeek   	  LONG
+SalesThisMonth   	  LONG
+SalesLastMonth   	  LONG
+Sales2MonthsAgo   	  LONG
+Sales3MonthsAgo   	  LONG
+SalesLastYear   	  LONG
+SalesThisYear   	  LONG
+SalesToDate		  LONG
+                        END
+

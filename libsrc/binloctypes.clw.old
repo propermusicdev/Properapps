@@ -1,0 +1,113 @@
+MaxShelvesCount  Equate(13)
+
+MOVELIST_Entered   Equate(0)
+MOVELIST_Processed Equate(1)
+
+! To pick Product from bins
+TProductBinsQueue Queue,Type
+ID                   ULong ! Any ID to identify line (for example OrderLineID)
+ProductID            ULong
+RequiredQty          Long
+PickedQty            Long
+BinCodes             CString(128)
+                  End
+
+! For a work with update of WH bin location stock
+TwOrderLineId	   Queue
+wOrderLineId         ULONG
+                   End
+
+! For a work with bincodes and qantuties in pick list line
+TPickingBinsQueue  Queue
+BinCode              CString(6)
+QtyToPick            Long
+QtyPicked            Long
+                   End
+
+! For getting product stock history
+TProductStockHistoryQueue  Queue
+DocType                       CString(21)
+Icon                          Short
+DocDate                       Date
+DocTime                       Time
+Description                   CString(61)
+SrcBinCode                    CString(6)
+DstBinCode                    CString(6)
+Qty                           Long
+                           End
+
+TBinQueue  Queue,Type
+BinCode       CString(6)
+MinQty        Long
+MaxQty        Long
+Qty           Long
+Type          CString(11)
+TempQty1      Long
+FromMulti     Byte
+SortBincode   CString(11)
+TempQty2      Long
+           End
+
+TEditShelfGroup Group,Type
+Spaced             Byte,Dim(13)
+Stored             Byte,Dim(13)
+BinWidth           Byte,Dim(13,9)
+BinCapacity        Long,Dim(13,9)
+BinRestock         Byte,Dim(13,9)
+BinMinLevel        Long,Dim(13,9)
+BinType            Byte
+BinMulti           Byte,Dim(13,9)
+Stretched          Byte
+                End
+
+TEnumSector     Queue
+Spaced             Byte
+Chars              Cstring(128)
+Back               Byte
+                End
+
+TMultiProductQueue  Queue
+Rec                    Like(WHBP:Record)
+                    End
+
+TBayCodeQueue       Queue
+BayCode                CString(4)
+                    End
+
+TBaySortOrder     Queue,Type
+RowandBay             CString(3)
+BayOrder              CSTring(5)
+                   End
+
+TPickingTicketQu         QUEUE,Type
+PT:CatNo                   STRING(21)
+PT:CatNo_NormalFG          LONG !Normal forground color
+PT:CatNo_NormalBG          LONG !Normal background color
+PT:CatNo_SelectedFG        LONG !Selected forground color
+PT:CatNo_SelectedBG        LONG !Selected background color
+PT:ArtistTitle             STRING(30)
+PT:ArtistTitle_NormalFG    LONG !Normal forground color
+PT:ArtistTitle_NormalBG    LONG !Normal background color
+PT:ArtistTitle_SelectedFG  LONG !Selected forground color
+PT:ArtistTitle_SelectedBG  LONG !Selected background color
+PT:QtyOrdered              USHORT
+PT:QtyOrdered_NormalFG     LONG !Normal forground color
+PT:QtyOrdered_NormalBG     LONG !Normal background color
+PT:QtyOrdered_SelectedFG   LONG !Selected forground color
+PT:QtyOrdered_SelectedBG   LONG !Selected background color
+PT:QtyPicked               USHORT
+PT:QtyPicked_NormalFG      LONG !Normal forground color
+PT:QtyPicked_NormalBG      LONG !Normal background color
+PT:QtyPicked_SelectedFG    LONG !Selected forground color
+PT:QtyPicked_SelectedBG    LONG !Selected background color
+PT:QtyPacked               USHORT
+PT:QtyPacked_NormalFG      LONG !Normal forground color
+PT:QtyPacked_NormalBG      LONG !Normal background color
+PT:QtyPacked_SelectedFG    LONG !Selected forground color
+PT:QtyPacked_SelectedBG    LONG !Selected background color
+PT:StockLocations          STRING(100)
+PT:Barcode                 STRING(30)
+PT:ProductId               LONG
+PT:PickListId              ULONG
+PT:CAuditId                ULONG
+                         END

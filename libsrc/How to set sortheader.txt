@@ -1,0 +1,54 @@
+GLOBAL: After Global includes
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ INCLUDE('SortHead.inc')
+[END]
+
+GLOBAL: After Program code statement
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+ProgramPath = PATH()
+[END]
+
+
+Gerenated declerations for window
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3501
+PROPERTY:END
+HeadSort1            SortHeaderClassType
+[END]
+
+Window init
+	Prepare alert keys
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 9001
+PROPERTY:END
+HeadSort1.Initialize([QUEUE],[LIST CONTROL],,ProgramPath&'\HeadSort.ini','[MODULE NAME]'&CLIP(GLO:UserNo_))
+[END]
+
+
+Window 
+	Take event 
+		after parent call
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5001
+PROPERTY:END
+IF HeadSort1.TakeEvents() THEN RETURN Level:Notify.
+[END]

@@ -1,0 +1,359 @@
+ INCLUDE('WAP.equ'),ONCE
+!--------------------------------------------------------------------------------------------------------
+! Order Status'                         ! Hex             ! Binary                ! Decimal   ! Notes         
+ORDER_STATUS_EMPTY                      EQUATE(00000H)    ! 00000000000000000b    !     0   ! Also Consignment
+
+ORDER_STATUS_HOLD_CREDIT_STOP           EQUATE(00001H)    ! 00000000000000001b    !     1   ! Status
+ORDER_STATUS_HOLD_DONT_PICK             EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+ORDER_STATUS_HOLD_WAIT_4_NEXT           EQUATE(00004H)    ! 00000000000000100b    !     4     ! Status
+ORDER_STATUS_HOLD_DONT_AUTO_ASSIGN    	EQUATE(00008H)    ! 00000000000001000b    !     8     ! Status
+ORDER_STATUS_CANCELLED                  EQUATE(00010H)    ! 00000000000010000b    !    16     ! Status
+
+ORDER_STATUS_OPEN       		EQUATE(00020H)    ! 00000000000100000b    !    32
+ORDER_STATUS_CONFIRMED        		EQUATE(00040H)    ! 00000000001000000b    !    64   
+ORDER_STATUS_ASSIGNED       		EQUATE(00080H)    ! 00000000010000000b    !   128
+ORDER_STATUS_PICKING        		EQUATE(00100H)    ! 00000000100000000b    !   256
+ORDER_STATUS_CHECKING       		EQUATE(00200H)    ! 00000001000000000b    !   512
+ORDER_STATUS_PACKED       		EQUATE(00400H)    ! 00000010000000000b    !  1024
+ORDER_STATUS_DESPATCHED       		EQUATE(00800H)    ! 00000100000000000b    !  2048
+ORDER_STATUS_TOINVOICE        		EQUATE(01000H)    ! 00001000000000000b    !  4096
+ORDER_STATUS_INVOICED       		EQUATE(02000H)    ! 00010000000000000b    !  8192
+
+! Order Line Status
+ORDERLINE_STATUS_EMPTY                  EQUATE(0)         ! 00000000000000000b    !     0
+ORDER_HOLDSTATUSES              	EQUATE(00000000000011111b)    ! 00000000000011111b    !    To make mask
+ORDER_PROCSTATUSES              	EQUATE(11111111111100000b)    ! 00011111111100000b    !    To make mask
+
+!--------------------------------------------------------------------------------------------------------
+! WAP Run modes         		! Hex             ! Binary                ! Decimal   ! Notes         
+WAPRUNMODE_MANAGER                  	EQUATE(000001b)
+WAPRUNMODE_PICKING                  	EQUATE(000010b)
+WAPRUNMODE_CHECKING                 	EQUATE(000100b)
+WAPRUNMODE_DESPATCH                 	EQUATE(001000b)
+WAPRUNMODE_AMAZON                   	EQUATE(010000b)
+WAPRUNMODE_RETURNS                  	EQUATE(100000b)
+
+!--------------------------------------------------------------------------------------------------------
+! Return Status'                        ! Hex             ! Binary                ! Decimal   ! Notes         
+RETURN_STATUS_EMPTY                     EQUATE(00000H)    ! 00000000000000000b    !     0
+
+RETURN_STATUS_HOLD                	EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+RETURN_STATUS_CANCELLED                 EQUATE(00010H)    ! 00000000000010000b    !    16     ! Status
+
+RETURN_STATUS_OPEN                      EQUATE(00020H)    ! 00000000000100000b    !    32
+RETURN_STATUS_WAITING_AUTHORISATION   	EQUATE(00040H)    ! 00000000001000000b    !    64   
+RETURN_STATUS_APPROVED                  EQUATE(00080H)    ! 00000000010000000b    !   128
+RETURN_STATUS_APPROVAL_DENIED           EQUATE(00100H)    ! 00000000100000000b    !   256
+RETURN_STATUS_PROCESSED                 EQUATE(00200H)    ! 00000001000000000b    !   512
+RETURN_STATUS_TOCREDIT                  EQUATE(00400H)    ! 00000010000000000b    !  1024   
+RETURN_STATUS_CREDITED                  EQUATE(00800H)    ! 00000100000000000b    !  2048 
+RETURN_STATUS_AUTO_APPROVED           	EQUATE(01000H)    ! 00001000000000000b    !  4096     ! Special Returns
+
+! Return Status
+RETURNLINE_STATUS_EMPTY                 EQUATE(0)         ! 00000000000000000b    !     0
+RETURN_HOLDSTATUSES             	EQUATE(00000000000011111b)    ! 00000000000011111b    !    To make mask
+RETURN_PROCSTATUSES             	EQUATE(11111111111100000b)    ! 00011111111100000b    !    To make mask
+
+!--------------------------------------------------------------------------------------------------------
+! Virgin Status'                        ! Hex             ! Binary                ! Decimal   ! Notes         
+VIRGIN_STATUS_EMPTY                     EQUATE(00000H)    ! 00000000000000000b    !     0
+
+VIRGIN_STATUS_OPEN                      EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+VIRGIN_STATUS_PACKED                    EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+VIRGIN_STATUS_ASN                   	EQUATE(00004H)    ! 00000000000000100b    !     4     ! Status
+
+!--------------------------------------------------------------------------------------------------------
+! Return Approval                       ! Hex             ! Binary                ! Decimal   ! Notes         
+RETURNLINE_STATUS_APPROVED              EQUATE(00001H)    ! 00000000000000001b    !     1   
+RETURNLINE_STATUS_APPROVAL_DENIED       EQUATE(00002H)    ! 00000000000000010b    !     2   
+RETURNLINE_STATUS_APPROVED_BYUSER       EQUATE(00004H)    ! 00000000000000100b    !     4   
+RETURNLINE_STATUS_REJECTED              EQUATE(00008H)    ! 00000000000001000b    !     8
+
+! Return Denied Reason
+RETURNLINE_STATUS_NOT_PROPER_PRODUCT    	EQUATE(00010H)    ! 00000000000010000b    !    16
+RETURNLINE_STATUS_NOLONGER_PROPER_PRODUCT 	EQUATE(00020H)    ! 00000000000100000b    !    32    
+RETURNLINE_STATUS_NEVER_SUPPLIED    		EQUATE(00040H)    ! 00000000001000000b    !    64
+RETURNLINE_STATUS_OUTSIDE_RETURN_PERIOD 	EQUATE(00080H)    ! 00000000010000000b    !   128  
+RETURNLINE_STATUS_MORE_RETURNED_THAN_SUPPLIED 	EQUATE(00100H)    ! 00000000100000000b    !   256
+RETURNLINE_STATUS_REFER_TO_BUYER    		EQUATE(00200H)    ! 00000001000000000b    !   512
+
+
+! Returned
+RETURNLINE_STATUS_RETURNED              EQUATE(00400H)    ! 00000010000000000b    !  1024
+RETURNLINE_STATUS_RETURNED_FAULTY       EQUATE(00800H)    ! 00000100000000000b    !  2048
+!RETURNLINE_STATUS_RETURNED_HOLD        EQUATE(01000H)    ! 00001000000000000b    !  4096
+                                  
+! Return Line Status
+RETURNLINE_STATUSES               	EQUATE(000000000000000001111b)  ! 00000000000001111b    !    To make mask
+RETURNLINE_DENIEDREASON           	EQUATE(000000000001111110000b)    ! 00000001111110000b    !    To make mask
+RETURNLINE_RETURNSTATUSE          	EQUATE(000011111110000000000b)    ! 00011110000000000b    !    To make mask
+
+
+
+!--------------------------------------------------------------------------------------------------------
+! Return Box Status'                    ! Hex             ! Binary                ! Decimal   ! Notes         
+RETURNBOX_STATUS_EMPTY                  EQUATE(00000H)    ! 00000000000000000b    !     0
+RETURNBOX_STATUS_OPEN               	EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+RETURNBOX_STATUS_ACTIONED               EQUATE(00002H)    ! 00000000000000010b    !     2   ! Status
+RETURNBOX_STATUS_COMPLETE               EQUATE(00004H)    ! 00000000000000100b    !     4     ! Status
+RETURNBOX_STATUS_TOCREDIT               EQUATE(00008H)    ! 00000000000001000b    !     8     ! Status
+RETURNBOX_STATUS_CREDITED               EQUATE(00010H)    ! 00000000000010000b    !    16     ! Status
+RETURNBOX_STATUS_MOVELIST               EQUATE(00020H)    ! 00000000000100000b    !    32   ! Status  
+
+!--------------------------------------------------------------------------------------------------------
+! Return Box Lines Status'              ! Hex             ! Binary                ! Decimal   ! Notes         
+RETURNBOXLINE_STATUS_EMPTY              EQUATE(00000H)    ! 00000000000000000b    !     0
+  
+RETURNBOXLINE_STATUS_APPROVED           EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+RETURNBOXLINE_STATUS_APPROVAL_DENIED    EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+RETURNBOXLINE_STATUS_UNKNOWN            EQUATE(00004H)    ! 00000000000000100b    !     4     ! Status
+
+RETURNBOXLINE_STATUS_UNPICKLIST     	EQUATE(00010H)    ! 00000000000010000b    !    16   
+RETURNBOXLINE_STATUS_STOCK_RETURN   	EQUATE(00020H)    ! 00000000000100000b    !    32    
+
+RETURNBOXLINE_STATUS_GOOD               EQUATE(00080H)    ! 00000000010000000b    !    128    !Restock
+RETURNBOXLINE_STATUS_FAULTY             EQUATE(00100H)    ! 00000000100000000b    !    256    !Return Supplier
+RETURNBOXLINE_STATUS_DELETED        	EQUATE(00200H)    ! 00000001000000000b    !    512    !No longer sold
+
+RETURNBOXLINE_STATUSES            	EQUATE(00000000000001111b)    	! 00000000000001111b    !    To make mask
+RETURNBOXLINE_ACCEPTED            	EQUATE(00000000001110000b)  	! 00000000001110000b    !    To make mask
+RETURNBOXLINE_STATE             	EQUATE(00000001110000000b)    	! 00000001111110000b    !    To make mask
+
+!--------------------------------------------------------------------------------------------------------
+! Un Pick List Status'                  ! Hex             ! Binary          ! Decimal   ! Notes         
+UNPICKLIST_STATUS_EMPTY                 EQUATE(00000H)    ! 00000000000000000b    !     0
+
+UNPICKLIST_STATUS_OPEN              	EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+UNPICKLIST_STATUS_PRINTED               EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+UNPICKLIST_STATUS_CHECKED               EQUATE(00004H)    ! 00000000000000100b    !     4   ! Status
+UNPICKLIST_STATUS_CREDITED              EQUATE(00008H)    ! 00000000000001000b    !     8     ! Status
+
+!--------------------------------------------------------------------------------------------------------
+! Stock Return Status'                  ! Hex             ! Binary        ! Decimal   ! Notes         
+STOCKRETURN_STATUS_EMPTY                EQUATE(00000H)    ! 00000000000000000b    !     0
+
+STOCKRETURN_STATUS_OPEN                 EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+STOCKRETURN_STATUS_PRINTED              EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+STOCKRETURN_STATUS_PACKED               EQUATE(00004H)    ! 00000000000000100b    !     4     ! Status
+STOCKRETURN_STATUS_DESPATCHED           EQUATE(00008H)    ! 00000000000001000b    !     8     ! Status
+
+!--------------------------------------------------------------------------------------------------------
+! Stock Return Line Status'             ! Hex             ! Binary          ! Decimal   ! Notes         
+STOCKRETURNLINE_STATUS_EMPTY            EQUATE(00000H)    ! 00000000000000000b    !     0
+
+STOCKRETURNLINE_STATUS_UNKNOWN          EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+STOCKRETURNLINE_STATUS_UNAUTH           EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+STOCKRETURNLINE_STATUS_UNSALEABLE  	EQUATE(00004H)    ! 00000000000000100b    !     4     ! Status
+
+STOCKRETURNLINE_STATUSES            	EQUATE(00000000000001111b)    ! 00000000000001111b    !    To make mask
+
+!--------------------------------------------------------------------------------------------------------
+! Customer Return Line Status'          ! Hex             ! Binary                ! Decimal   ! Notes         
+CUSTOMERRETURNLINE_STATUS_EMPTY         EQUATE(00000H)    ! 00000000000000000b    !     0
+
+CUSTOMERRETURNLINE_STATUS_RETURNED    	EQUATE(00001H)    ! 00000000000000001b    !     1   ! Status
+CUSTOMERRETURNLINE_STATUS_TOSTOCK   	EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+
+CUSTOMERRETURNLINE_STATUSES           	EQUATE(00000000000001111b)    ! 00000000000001111b    !    To make mask
+
+!--------------------------------------------------------------------------------------------------------
+! Order Line Status       		! Hex             ! Binary                ! Decimal   ! Notes      
+STOCKRETURN_STATUSES              	EQUATE(00000000000011111b)    ! 00000000000011111b    !    To make mask
+
+GOODSIN_SET               		EQUATE(0)
+GOODSIN_JUSTENTERED                 	EQUATE(1)
+GOODSIN_PUTAWAY                     	EQUATE(2)
+GOODSIN_PROCESSED                   	EQUATE(3)
+GOODSIN_COMPLETED                   	EQUATE(4)
+
+GOODSIN_HEADER_PLACED             	EQUATE(0)
+GOODSIN_HEADER_ARRIVED              	EQUATE(1)
+GOODSIN_HEADER_CURRENT              	EQUATE(2)
+GOODSIN_HEADER_COMPLETED            	EQUATE(4)
+GOODSIN_HEADER_EXPORTED			EQUATE(8)
+
+!--------------------------------------------------------------------------------------------------------
+! Order Type                        	! Dec       ! Notes         
+ORDER_TYPE_BACKORDER                    EQUATE(0)   ! Backorder
+ORDER_TYPE_LIVEORDER                	EQUATE(1)   ! Live Order
+ORDER_TYPE_CREDIT_RETURN              	EQUATE(2)   ! Credit Return
+ORDER_TYPE_STOCK_RETURN               	EQUATE(3)   ! Stock Return to Customer
+ORDER_TYPE_CONSIGNMENT_STOCK      	EQUATE(4)   ! Consignment Stock Order
+ORDER_TYPE_CONSIGNMENT_ORDER      	EQUATE(5)   ! Order from Consignment (invoice)
+ORDER_TYPE_CONSIGNMENT_RETURN     	EQUATE(6)   ! Return from Consignment
+ORDER_TYPE_RETURN_TO_CONSIGNMENT    	EQUATE(7)   ! Return to Consignment Account (Credit)
+ORDER_TYPE_ORDER_SHORTAGES      	EQUATE(8)   ! Order Shortages
+ORDER_TYPE_ORDER_HISTORY	      	EQUATE(9)   ! Order History
+ORDER_TYPE_CANCELLED_LINES		EQUATE(10)  ! Cancelled Line History
+ORDER_TYPE_PRICE_CORRECTION		EQUATE(11)  ! Correcting prices
+!ORDER_TYPE_CUST_OWNED_INVOICE		EQUATE(10)  ! Customer Owned invoice. Takes stock from PMD gives to customer (Invoice)
+!ORDER_TYPE_CUST_OWNED_STOCK		EQUATE(11)  ! Customer Owned order, no invoice just stock (Stock Order)
+!ORDER_TYPE_CUST_OWNED_RETURN		EQUATE(12)  ! Return from customer to PMD (Credit)
+!ORDER_TYPE_RETURN_TO_CUST_OWNED		EQUATE(13)  ! Return to customer owned stock 
+
+!--------------------------------------------------------------------------------------------------------
+! Shortage Status'                      ! Hex             ! Binary                ! Decimal   ! Notes         
+SHORTAGES_STATUS_EMPTY                  EQUATE(00000H)    ! 00000000000000000b    !     0
+
+SHORTAGES_STATUS_HOLD               	EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+
+SHORTAGES_STATUS_OPEN                   EQUATE(00020H)    ! 00000000000100000b    !    32
+SHORTAGES_STATUS_PROCESSED              EQUATE(00040H)    ! 00000000001000000b    !    64
+SHORTAGES_STATUS_TOCREDIT               EQUATE(00080H)    ! 00000000010000000b    !   128   
+SHORTAGES_STATUS_CREDITED               EQUATE(00100H)    ! 00000000100000000b    !   256
+
+! Shortage Status
+SHORTAGESLINE_STATUS_EMPTY              EQUATE(0)         ! 00000000000000000b    !     0
+SHORTAGES_HOLDSTATUSES            	EQUATE(00000000000011111b)    ! 00000000000011111b    !    To make mask
+SHORTAGES_PROCSTATUSES            	EQUATE(11111111111100000b)    ! 00011111111100000b    !    To make mask
+ 
+!--------------------------------------------------------------------------------------------------------
+! MoveList Type                       	! Hex           ! Notes         
+MOVELIST_TYPE_MOVELIST              	EQUATE(0)   	! Movelist
+MOVELIST_TYPE_GOODSIN               	EQUATE(1)   	! Goods In
+MOVELIST_TYPE_RETURN                	EQUATE(2)   	! Return
+MOVELIST_TYPE_FAULTY_DELETED            EQUATE(3)   	! Faulty Deleted
+MOVELIST_TYPE_GOODSOUT              	EQUATE(4)   	! Goods Out
+MOVELIST_TYPE_RETURN_TOSTOCK            EQUATE(5)   	! Return To Stock
+MOVELIST_TYPE_SHORTAGE              	EQUATE(6)   	! Order Shortage
+MOVELIST_TYPE_REPLENISH               	EQUATE(7)   	! Replenishment
+MOVELIST_TYPE_CORRECTION		EQUATE(8)	! Correction
+MOVELIST_TYPE_TO_FAULTY_REFURB		EQUATE(9)	! To Faulty/Refurb
+MOVELIST_TYPE_FROM_FAULTY_REFURB	EQUATE(10)	! From Faulty/Refurb
+MOVELIST_TYPE_PROVISIONAL		EQUATE(11)	! Only for information, cannot be processed
+MOVELIST_TYPE_UNKNOWN			EQUATE(255)	! Errors
+!Min max
+MOVELIST_TYPE_MIN			EQUATE(0)
+MOVELIST_TYPE_MAX			EQUATE(11)
+!---------------------------------------------------------------------------------------------------------
+!Movelist names
+MOVELIST_NAME_MOVELIST			EQUATE('Move List')
+MOVELIST_NAME_GOODS_IN 			EQUATE('Goods In')
+MOVELIST_NAME_RETURNS			EQUATE('Returns')
+MOVELIST_NAME_FAULTY_DELETED		EQUATE('Faulty/Deleted')
+MOVELIST_NAME_GOODS_OUT			EQUATE('GoodsOut')
+MOVELIST_NAME_RETURN_TO_STOCK		EQUATE('Return to Stock')
+MOVELIST_NAME_SHORTAGE			EQUATE('Shortage')
+MOVELIST_NAME_REPLENISH			EQUATE('Replenish')
+MOVELIST_NAME_CORRECTION		EQUATE('Correction')
+MOVELIST_NAME_TO_FAULTY_REFURB		EQUATE('To Faulty/Refurb')
+MOVELIST_NAME_FROM_FAULTY_REFURB	EQUATE('From Faulty/Refurb')
+MOVELIST_NAME_PROVISIONAL		EQUATE('Provisional')
+MOVELIST_NAME_UNKNOWN			EQUATE('Unknown')
+
+!UPPER CASE VERSIONS FOR MATCHING MAKE SURE THEY'RE THE SAME
+MOVELIST_NAME_MOVELIST_U		EQUATE('MOVE LIST')
+MOVELIST_NAME_GOODS_IN_U		EQUATE('GOODS IN')
+MOVELIST_NAME_RETURNS_U			EQUATE('RETURNS')
+MOVELIST_NAME_FAULTY_DELETED_U		EQUATE('FAULTY/DELETED')
+MOVELIST_NAME_GOODS_OUT_U		EQUATE('GOODSOUT')
+MOVELIST_NAME_RETURN_TO_STOCK_U		EQUATE('RETURN TO STOCK')
+MOVELIST_NAME_SHORTAGE_U		EQUATE('SHORTAGE')
+MOVELIST_NAME_REPLENISH_U		EQUATE('REPLENISH')
+MOVELIST_NAME_CORRECTION_U		EQUATE('CORRECTION')
+MOVELIST_NAME_TO_FAULTY_REFURB_U	EQUATE('TO FAULTY/REFURB')
+MOVELIST_NAME_FROM_FAULTY_REFURB_U	EQUATE('FROM FAULTY/REFURB')
+MOVELIST_NAME_PROVISIONAL_U		EQUATE('PROVISIONAL')
+MOVELIST_NAME_UNKNOWN_U			EQUATE('UNKNOWN')
+
+
+!--------------------------------------------------------------------------------------------------------
+! Basil Access                        	! Hex             ! Binary                ! Decimal ! Notes   
+BASIL_NO_ACCESS                     	EQUATE(00000H)    ! 00000000000000000b    !     0   ! 0
+BASIL_CUSTOMER_ORDERS                 	EQUATE(00001H)    ! 00000000000000001b    !     1   ! 1
+BASIL_PURCHASE_ORDERS                 	EQUATE(00002H)    ! 00000000000000010b    !     2   ! 2
+BASIL_GOODS_IN                      	EQUATE(00004H)    ! 00000000000000100b    !     4   ! 3
+BASIL_PRODUCT                     	EQUATE(00008H)    ! 00000000000001000b    !     8   ! 4
+BASIL_RETURNS                     	EQUATE(00010H)    ! 00000000000010000b    !     16  ! 5
+BASIL_REPORTS                     	EQUATE(00020H)    ! 00000000000100000b    !     32  ! 6
+BASIL_SAGE_LINKS                    	EQUATE(00040H)    ! 00000000001000000b    !     64  ! 7
+BASIL_SYSTEM                      	EQUATE(00080H)    ! 00000000010000000b    !     128 ! 8
+BASIL_MANAGER                     	EQUATE(00100H)    ! 00000000100000000b    !     256 ! 9
+BASIL_SUPERVISOR_MENU                 	EQUATE(00200H)    ! 00000001000000000b    !     512 ! 10
+BASIL_WORKS_MANAGEMENT			EQUATE(00400H)	  ! 00000010000000000b	  !     1024! 11 
+BASIL_DIGITAL				EQUATE(00800H)	  ! 00000100000000000b	  !     2048! 12 
+BASIL_BACKORDERS			EQUATE(01000H)	  ! 00001000000000000b	  !     4096! 13 
+
+!--------------------------------------------------------------------------------------------------------
+! Locked User Report menu access in basil 
+!                  			! Hex             ! Binary                ! Decimal ! Notes   
+LU_REPORT_NO_ACCESS                     EQUATE(00000H)    ! 00000000000000000b    !     0   ! 0
+LU_REPORT_SUPPLIER_STOCK                EQUATE(00001H)    ! 00000000000000001b    !     1   ! 1
+LU_REPORT_SUMMARY_SHORTAGES             EQUATE(00002H)    ! 00000000000000010b    !     2   ! 2
+LU_REPORT_INVOICED_LINES                EQUATE(00004H)    ! 00000000000000100b    !     4   ! 3
+LU_REPORT_SALES_SHIPPING                EQUATE(00008H)    ! 00000000000001000b    !     8   ! 4
+LU_REPORT_SALES_AMZ_ORDERS              EQUATE(00010H)    ! 00000000000010000b    !     16  ! 5
+LU_REPORT_CONS_SUMMARY              	EQUATE(00020H)    ! 00000000000100000b    !     32  ! 6
+LU_REPORT_SALES_AMZ_BACK_ORDERS		EQUATE(00040H)    ! 00000000001000000b    !     64  ! 7
+LU_REPORT_EXTENDED_DATA			EQUATE(00080H)    ! 00000000010000000b    !     128 ! 8
+LU_REPORT_ORDER_LINES			EQUATE(00100H)    ! 00000000100000000b    !     256 ! 9
+
+
+!--------------------------------------------------------------------------------------------------------
+! Asset Access                        	! Hex             ! Binary                ! Decimal  ! Notes   
+ASSET_NO_ACCESS                     	EQUATE(00000H)    ! 00000000000000000b    !     0    ! 0
+ASSET_VIEW	                     	EQUATE(00001H)    ! 00000000000000001b    !     1    ! 1
+ASSET_EDIT	                     	EQUATE(00002H)    ! 00000000000000010b    !     2    ! 2
+ASSET_PMD	                     	EQUATE(00004H)    ! 00000000000000100b    !     4    ! 3
+ASSET_PRL       	              	EQUATE(00008H)    ! 00000000000001000b    !     8    ! 4
+ASSET_PROPERNOTE                     	EQUATE(00010H)    ! 00000000000010000b    !     16   ! 5
+ASSET_PMG	                     	EQUATE(00020H)    ! 00000000000100000b    !     32   ! 6
+ASSET_ALL				EQUATE(00040H)    ! 00000000001000000b    !     64   ! 7
+
+!--------------------------------------------------------------------------------------------------------
+! Inventory Feed Exclusion List         ! Hex             ! Binary                ! Decimal   ! Notes   
+INVENTORY_NO_EXCLUSIONS             	EQUATE(00000H)    ! 000000000000000000000b    !     0     ! 0   !
+INVENTORY_EXCLUDE_ALL                 	EQUATE(00001H)    ! 000000000000000000001b    !     1     ! 1   !Exclude from all Feeds
+
+INVENTORY_AMAZON_UK                 	EQUATE(00002H)    ! 000000000000000000010b    !     2     ! 2
+INVENTORY_AMAZON_FR             	EQUATE(00004H)    ! 000000000000000000100b    !     4     ! 3
+INVENTORY_AMAZON_DE             	EQUATE(00008H)    ! 000000000000000001000b    !     8     ! 4
+INVENTORY_AMAZON_JP             	EQUATE(00010H)    ! 000000000000000010000b    !     16    ! 5
+INVENTORY_AMAZON_COM              	EQUATE(00020H)    ! 000000000000000100000b    !     32    ! 6
+INVENTORY_AMAZON_IN	                EQUATE(00040H)    ! 000000000000001000000b    !     64    ! 7
+INVENTORY_AMAZON_ACFF             	EQUATE(00080H)    ! 000000000000010000000b    !     128   ! 8
+INVENTORY_AMAZON_AU             	EQUATE(00100H)    ! 000000000000100000000b    !     256   ! 9
+INVENTORY_AMAZON_SPARE4                 EQUATE(00200H)    ! 000000000001000000000b    !     512   ! 10
+
+INVENTORY_MILLWARD_BROWN            	EQUATE(00400H)    ! 000000000010000000000b    !     1024  ! 11
+INVENTORY_STANDARD              	EQUATE(00800H)    ! 000000000100000000000b    !     2048  ! 12
+INVENTORY_SPECIAL                 	EQUATE(01000H)    ! 000000001000000000000b    !     4096  ! 13
+INVENTORY_PROPERMUSIC_COM          	EQUATE(02000H)    ! 000000010000000000000b    !     8192  ! 14
+INVENTORY_PIAS                  	EQUATE(04000H)    ! 000000100000000000000b    !     16384 ! 15
+INVENTORY_ESSENTIAL                  	EQUATE(08000H)    ! 000001000000000000000b    !     32768 ! 16
+INVENTORY_STANDARD_QTY                	EQUATE(10000H)    ! 000010000000000000000b    !     65536 ! 17    !Show Qty in Standard Feed
+INVENTORY_RISE                		EQUATE(20000H)    ! 000100000000000000000b    !     131072! 18    
+INVENTORY_NET_PRICE           		EQUATE(40000H)    ! 001000000000000000000b    !     262144! 19    
+INVENTORY_MUSIC_GLUE			EQUATE(80000H)	  ! 010000000000000000000b    !     524288! 20
+
+
+!--------------------------------------------------------------------------------------------------------
+! Amazon Status'                        ! Hex             ! Binary                ! Decimal   ! Notes         
+AMZ_STATUS_EMPTY                        EQUATE(00000H)    ! 00000000000000000b    !     0
+
+AMZ_STATUS_OPEN                     	EQUATE(00001H)    ! 00000000000000001b    !     1     ! Status
+AMZ_STATUS_PACKED                   	EQUATE(00002H)    ! 00000000000000010b    !     2     ! Status
+AMZ_STATUS_ASN          		EQUATE(00004H)    ! 00000000000000100b	  !     4     ! Status
+
+
+!--------------------------------------------------------------------------------------------------------
+! Override Rovi data ProperMusic Feed   ! Hex             ! Binary                ! Decimal   ! Notes   
+ROVI_NO_EXCLUSIONS             		EQUATE(00000H)    ! 00000000000000000b    !     0     ! 0   !
+ROVI_EXCLUDE_ALL                 	EQUATE(00001H)    ! 00000000000000001b    !     1     ! 1   !Exclude all Rovi data
+
+ROVI_DESCRIPTION               		EQUATE(00002H)    ! 00000000000000010b    !     2     ! 2
+ROVI_COVER_ART             		EQUATE(00004H)    ! 00000000000000100b    !     4     ! 3
+ROVI_CONTRIBUTORS             		EQUATE(00008H)    ! 00000000000001000b    !     8     ! 4
+ROVI_REVIEWS             		EQUATE(00010H)    ! 00000000000010000b    !     16    ! 5
+ROVI_TRACK_LISTING            		EQUATE(00020H)    ! 00000000000100000b    !     32    ! 6
+ROVI_LABEL	                 	EQUATE(00040H)    ! 00000000001000000b    !     64    ! 7
+ROVI_DISTRIBUTOR             		EQUATE(00080H)    ! 00000000010000000b    !     128   ! 8
+ROVI_PARENTAL_ADVISORY         		EQUATE(00100H)    ! 00000000100000000b    !     256   ! 9
+ROVI_SPARE1                 		EQUATE(00200H)    ! 00000001000000000b    !     512   ! 10
+ROVI_SPARE2                		EQUATE(00400H)    ! 00000010000000000b    !     1024  ! 11
+ROVI_SPARE3                 		EQUATE(00800H)    ! 00000100000000000b    !     2048  ! 12
+ROVI_SPARE4                 		EQUATE(01000H)    ! 00001000000000000b    !     4096  ! 13
+ROVI_SPARE5                 		EQUATE(02000H)    ! 00010000000000000b    !     8192  ! 14
+ROVI_SPARE6                  		EQUATE(04000H)    ! 00100000000000000b    !     16384 ! 15
+ROVI_SPARE7                  		EQUATE(08000H)    ! 01000000000000000b    !     32768 ! 16
+ROVI_SPARE8                		EQUATE(10000H)    ! 10000000000000000b    !     65536 ! 17    !

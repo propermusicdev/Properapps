@@ -1,0 +1,57 @@
+// Generated .IDL file (by the OLE/COM Object Viewer)
+// 
+// typelib filename: DDLPurchaseOrderCSVLoad.tlb
+
+[
+  uuid(62CEDC4A-56D9-4191-AA70-2A9696955A36),
+  version(1.0),
+  custom(90883F05-3D28-11D2-8F17-00A0C9A6186D, DDLPurchaseOrderCSVLoad, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d3e91c83954b1746)
+
+]
+library DDLPurchaseOrderCSVLoad
+{
+    // TLib :     // TLib : mscorlib.dll : {BED7F4EA-1A96-11D2-8F08-00A0C9A6186D}
+    importlib("mscorlib.tlb");
+    // TLib : OLE Automation : {00020430-0000-0000-C000-000000000046}
+    importlib("stdole2.tlb");
+
+    // Forward declare all types defined in this typelib
+    interface _PurchaseOrderCSVLoad;
+
+    [
+      uuid(8C578BBA-FF41-45DA-9980-4F0728F5C69E),
+      version(1.0),
+      custom(0F21F359-AB84-41E8-9A78-36D110E6D2F9, DDLPurchaseOrderCSVLoad.PurchaseOrderCSVLoad)
+    ]
+    coclass PurchaseOrderCSVLoad {
+        interface _Object;
+        [default] interface _PurchaseOrderCSVLoad;
+    };
+
+    [
+      odl,
+      uuid(5056C927-44A9-4970-B70B-76ACE097CD4C),
+      version(1.0),
+      dual,
+      oleautomation,
+      custom(0F21F359-AB84-41E8-9A78-36D110E6D2F9, DDLPurchaseOrderCSVLoad.PurchaseOrderCSVLoad+_PurchaseOrderCSVLoad)    
+
+    ]
+    interface _PurchaseOrderCSVLoad : IDispatch {
+        [id(0x00000001)]
+        HRESULT TestLogin(
+                        [in] BSTR MMSName, 
+                        [in] BSTR MMSPassword, 
+                        [in] long MMSCompanyNumber, 
+                        [out, retval] BSTR* pRetVal);
+        [id(0x00000002)]
+        HRESULT PostPurchaseOrders(
+                        [in] BSTR MMSName, 
+                        [in] BSTR MMSPassword, 
+                        [in] long MMSCompanyNumber, 
+                        [in] BSTR CSVFileName, 
+                        [in] VARIANT_BOOL bValidate, 
+                        [in] BSTR Delimeter, 
+                        [out, retval] VARIANT_BOOL* pRetVal);
+    };
+};

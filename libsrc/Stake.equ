@@ -1,0 +1,13 @@
+ INCLUDE('Stake.equ'),ONCE
+
+!--------------------------------------------------------------------------------------------------------
+STOCKTAKE_CREATED	        EQUATE(0)
+STOCKTAKE_GENERATED             EQUATE(1)
+STOCKTAKE_PRINTED               EQUATE(2)
+STOCKTAKE_ADJUSTMENTS           EQUATE(3)
+STOCKTAKE_WH_CHANGES            EQUATE(4)
+STOCKTAKE_SAGE_CHANGES          EQUATE(5)
+STOCKTAKE_COMPLETE              EQUATE(6)
+
+STOCKTAKE_LINE_CREATED	        EQUATE(0)
+STOCKTAKE_LINE_ADJUSTED         EQUATE(1)

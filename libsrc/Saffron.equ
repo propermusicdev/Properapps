@@ -1,0 +1,220 @@
+TSalesAccountGroup       GROUP,TYPE
+AccountCode                STRING(10)
+ShopNumber                 USHORT
+AccountName                STRING(40)
+Address1                   STRING(40)
+Address2                   STRING(40)
+Address3                   STRING(40)
+Address4                   STRING(40)
+PostCode                   STRING(10)
+City                       STRING(30)
+County                     STRING(20)
+Analysis1                  STRING(5)
+Analysis2                  STRING(5)
+Analysis3                  STRING(5)
+Analysis4                  STRING(5)
+Analysis5                  STRING(5)
+Analysis6                  STRING(5)
+Analysis7                  STRING(5)
+Analysis8                  STRING(5)
+Analysis9                  STRING(5)
+Analysis10                 STRING(5)
+ContactName                STRING(40)
+Country                    STRING(40)
+SageCreditLimit            DECIMAL(10,2)
+CurrentOrderValue          DECIMAL(10,2)
+SageCurrentCredit          DECIMAL(10,2)
+DefaultNominalAccount      STRING(10)
+DefaultNominalCostCentre   STRING(10)
+DefaultNominalDepartment   STRING(10)
+SysCurrency                ULONG
+ForeignCurrency            STRING(40)
+FileDiscount               DECIMAL(5,2)
+PriceBandID                ULONG
+PriceBand                  STRING(10)
+CustomerShortName          STRING(20)
+Phone                      STRING(20)
+Fax                        STRING(20)
+PaymentTerms               STRING(40)
+VatNumber		   STRING(15)
+SysTaxRateID               ULONG
+VatCode                    STRING(10)
+OnStop                     USHORT
+OnStopDisplay              STRING(3)
+                         END
+
+
+TPurchaseAccountGroup    GROUP,TYPE
+AccountCode                STRING(10)
+AccountName                STRING(40)
+Address1                   STRING(40)
+Address2                   STRING(40)
+Address3                   STRING(40)
+Address4                   STRING(40)
+PostCode                   STRING(10)
+City                       STRING(30)
+County                     STRING(20)
+Analysis1                  STRING(5)
+Analysis2                  STRING(5)
+Analysis3                  STRING(5)
+Analysis4                  STRING(5)
+Analysis5                  STRING(5)
+Analysis6                  STRING(5)
+Analysis7                  STRING(5)
+Analysis8                  STRING(5)
+Analysis9                  STRING(5)
+Analysis10                 STRING(5)
+ContactName                STRING(40)
+Country                    STRING(40)
+SageCreditLimit            DECIMAL(10,2)
+CurrentOrderValue          DECIMAL(10,2)
+SageCurrentBalance         DECIMAL(10,2)
+DefaultNominalAccount      STRING(10)
+DefaultNominalCostCentre   STRING(10)
+DefaultNominalDepartment   STRING(10)
+SysCurrency                ULONG
+ForeignCurrency            STRING(40)
+CustomerShortName          STRING(20)
+Phone                      STRING(20)
+Fax                        STRING(20)
+PaymentTerms               STRING(40)
+VatNumber		   STRING(15)
+VatCode                    STRING(10)
+OnStop                     USHORT
+OnStopDisplay              STRING(3)
+SalesDetailSummary	   STRING(3)
+                         END
+
+
+TProductGroup    	 GROUP,TYPE
+CatNo            	   STRING(20)
+BarCode          	   STRING(20)
+Artist           	   STRING(60)		
+Title            	   STRING(60)
+Format           	   STRING(10)
+AnalysisCode     	   STRING(20)
+Supplier       		   STRING(20)  
+Commodity       	   STRING(20)
+Cost             	   DECIMAL(10,2)
+OverStockLevel   	   ULONG 
+Allocated        	   ULONG 
+Qty			   ULONG
+Nominal1		   STRING(20)
+Nominal2		   STRING(20)
+Nominal3		   STRING(20)
+Nominal4		   STRING(20)
+Weight           	   DECIMAL(10,2)
+Vat_Code         	   STRING(10)
+ItemID          	   ULONG
+ReleaseDate         	   STRING(10)
+                         END
+
+
+TTransactionGroup    	 GROUP,TYPE
+SOPInvoiceCreditID	   STRING(20)			
+SOPInvoiceCreditLineID	   STRING(20)
+CustomerAccountNumber	   STRING(20)
+OrderDate		   STRING(10)
+SpareText1		   STRING(20)
+CustomerDocumentNo	   STRING(20)
+SecondReference		   STRING(20)
+InvoiceDate		   STRING(10)
+DocumentNo		   STRING(20)
+LineDiscountPercent	   DECIMAL(6,2)
+LineTotalValue		   DECIMAL(10,2)
+LineTaxValue		   DECIMAL(10,2)
+ItemPrice		   DECIMAL(8,2)
+LineVatCode		   STRING(20)
+InvoiceCreditDate	   STRING(10)
+LineQty			   ULONG
+ItemCode		   STRING(21)
+lineDiscountAmount	   DECIMAL(10,2)
+SOPInvoiceCreditTypeID	   STRING(20)
+			 END
+
+TTransHistroyGroup    	 GROUP,TYPE
+TransactionTypeID	   ULONG			
+TransactionDate		   STRING(10)
+Quantity	   	   LONG
+SourceAreaTypeID	   STRING(10)
+SourceAreaReference	   STRING(20)
+SourceAreaName		   STRING(20)
+SecondReference		   STRING(20)
+UnitCostPrice		   DECIMAL(8,2)
+UnitIssuePrice		   DECIMAL(8,2)
+UnitDiscountValue	   DECIMAL(8,2)
+CostValue		   DECIMAL(8,2)
+IssueValue		   DECIMAL(8,2)
+AnalysisCode1		   STRING(10)
+DateTimeCreated		   STRING(10)
+Code			   STRING(21)
+Name			   STRING(30)
+TaxCodeID		   STRING(10)
+SpareText1		   STRING(30)
+SpareText2		   STRING(10)
+SpareDate1		   STRING(10)
+			 END
+
+TReportLineGroup	 GROUP,TYPE
+F1			   STRING(100)
+F2			   STRING(100)
+F3			   STRING(100)
+F4			   STRING(100)
+F5			   STRING(100)
+F6			   STRING(100)
+F7			   STRING(100)
+F8			   STRING(100)
+F9			   STRING(100)
+F10			   STRING(100)
+F11			   STRING(100)
+F12			   STRING(100)
+F13			   STRING(100)
+F14			   STRING(100)
+F15			   STRING(100)
+F16			   STRING(100)
+F17			   STRING(100)
+F18			   STRING(100)
+F19			   STRING(100)
+F20			   STRING(60)
+F21			   STRING(60)
+F22			   STRING(60)
+F23			   STRING(60)
+F24			   STRING(60)
+F25			   STRING(60)
+F26			   STRING(60)
+F27			   STRING(60)
+F28			   STRING(60)
+F29			   STRING(60)
+F30			   STRING(60)
+			 END
+
+
+!Label Report Output Options
+LR_No_OUTPUT		EQUATE(0)
+LR_PRINTED		EQUATE(1)
+LR_PDF			EQUATE(2)
+LR_XLS			EQUATE(4)
+LR_HTML			EQUATE(8)
+LR_SBI_ONLY		EQUATE(16)
+LR_COMBINED_XLS		EQUATE(32)
+LR_ZIP_FILES		EQUATE(64)
+
+
+!Label Report Status
+Report_Started		EQUATE(0)
+Suppliers_Collected	EQUATE(1)
+Transcations_Collected	EQUATE(2)
+Reports_Processed	EQUATE(3)
+Reports_Created		EQUATE(4)
+Reports_Published	EQUATE(5)
+Complete_Locked		EQUATE(10)
+
+
+
+!Line Exclusions                        ! Hex             ! Binary                ! Decimal   ! Notes    
+REPORTLINE_NO_EXCLUSION                 EQUATE(00000H)    ! 00000000000000000b    !     0   
+REPORTLINE_PDF			        EQUATE(00001H)    ! 00000000000000001b    !     1     
+REPORTLINE_XLS		                EQUATE(00002H)    ! 00000000000000010b    !     2     
+REPORTLINE_HTML		                EQUATE(00004H)    ! 00000000000000100b    !     4     
+
+

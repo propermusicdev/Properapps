@@ -1,0 +1,55 @@
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DO SetupGroups
+[END]
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+  BuildDigitalValuesQu(DigitalOptionsGroup, TRUE)
+[END]
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 2624
+PROPERTY:END
+SetupGroups       ROUTINE
+
+  DATA
+
+  CODE
+
+
+    DOG:ReleaseTrackId            = 0
+    DOG:TrackId                   = 0
+    DOG:ReleaseId                 = DGR:ReleaseId
+    DOG:ContributorId             = 0
+    DOG:ListControl               = ?ListDigitalValuesQu
+    DOG:InsertControl             = ?BtnValuesInsert
+    DOG:ChangeControl             = ?BtnValuesChange
+    DOG:DeleteControl             = ?BtnValuesDelete
+    DOG:GetValues                 = TRUE
+    DOG:GetContributors           = TRUE
+    DOG:ValuesQu                  &= DigitalValuesQu
+
+
+
+
+[END]
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 2501
+PROPERTY:END
+
+  TakeDigitalValuesQuEvent(DigitalOptionsGroup, FIELD(), EVENT())
+[END]
+
+

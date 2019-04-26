@@ -1,0 +1,37 @@
+ExcelLink.BrowseToExcelPrepare  PROCEDURE(byte ShowUI,byte ExportMode,Window TWindow,<BrowseClass BRW>,<Queue TBrowseQueue>,<short ListControl>)
+
+Export mode
+	1 = Use browseclass
+	2 = Use Queue
+
+Generated Declerations:
+
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3150
+PROPERTY:END
+Excel                   ExcelLink
+[END]
+
+
+On Button:
+
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+ Excel.Init
+ IF Excel.BrowseToExcelPrepare([ShowUi TRUE/FALSE],[1=browse,2=Queue],[Window],[Browse],[Qu],?[Control])
+   
+   Excel.SetVisible(1)
+   
+   Excel.BrowseToExcelStart()
+
+ END
+ Excel.Kill
+
+[END]

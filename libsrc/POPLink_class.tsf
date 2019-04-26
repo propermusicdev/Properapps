@@ -1,0 +1,24 @@
+[CLASS]_PurchaseOrderCSVLoadClass
+[CLSID]IID_PurchaseOrderCSVLoad 8C578BBA-FF41-45DA-9980-4F0728F5C69E
+[SPROC]Init
+[SPROC]Init
+[ARG]LONG lpInterface
+[SPROC]Kill
+[SPROC]GetInterfaceObject
+[SPROC]GetInterfaceAddr
+[SPROC]GetLibLocation
+[PROC]TestLogin
+[RET]HRESULT
+[ARG]BSTRING MMSName
+[ARG]BSTRING MMSPassword
+[ARG]long MMSCompanyNumber
+[ARG]*BSTRING pRetVal
+[PROC]PostPurchaseOrders
+[RET]HRESULT
+[ARG]BSTRING MMSName
+[ARG]BSTRING MMSPassword
+[ARG]long MMSCompanyNumber
+[ARG]BSTRING CSVFileName
+[ARG]VARIANT_BOOL bValidate
+[ARG]BSTRING Delimeter
+[ARG]*VARIANT_BOOL pRetVal

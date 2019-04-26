@@ -1,0 +1,50 @@
+After global Includes:
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Include('Marker.inc')
+[END]
+
+
+Procedure
+Local Data
+
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3000
+PROPERTY:END
+Marker               MarkerClass
+[END]
+
+Window Manager
+TakeEvent
+After Top of Cycle
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3800
+PROPERTY:END
+Marker.TakeEvent
+[END]
+
+
+Browse Object
+	SetQueueRecord
+
+	After parentcall
+
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 8000
+PROPERTY:END
+SELF.Q.Mark = Marker.IsMarked(SELF.Q.GOL:GoodsInLineID)
+Marker.SetColors
+[END]
+
