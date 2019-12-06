@@ -1,6 +1,6 @@
 TSalesAccountGroup       GROUP,TYPE
 AccountCode                STRING(10)
-ShopNumber                 USHORT
+ShopNumber                 ULONG
 AccountName                STRING(40)
 Address1                   STRING(40)
 Address2                   STRING(40)

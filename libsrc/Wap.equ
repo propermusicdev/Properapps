@@ -186,6 +186,8 @@ ORDER_TYPE_ORDER_SHORTAGES      	EQUATE(8)   ! Order Shortages
 ORDER_TYPE_ORDER_HISTORY	      	EQUATE(9)   ! Order History
 ORDER_TYPE_CANCELLED_LINES		EQUATE(10)  ! Cancelled Line History
 ORDER_TYPE_PRICE_CORRECTION		EQUATE(11)  ! Correcting prices
+ORDER_TYPE_DIRECT_SHIP			EQUATE(12)  ! Direct Ship to customer (invoice)
+ORDER_TYPE_DIRECT_SHIP_CNS		EQUATE(13)  ! Direct ship to Consignment Customer (Consignment Stock Order)
 !ORDER_TYPE_CUST_OWNED_INVOICE		EQUATE(10)  ! Customer Owned invoice. Takes stock from PMD gives to customer (Invoice)
 !ORDER_TYPE_CUST_OWNED_STOCK		EQUATE(11)  ! Customer Owned order, no invoice just stock (Stock Order)
 !ORDER_TYPE_CUST_OWNED_RETURN		EQUATE(12)  ! Return from customer to PMD (Credit)
